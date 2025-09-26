@@ -27,7 +27,7 @@ int main()
     for (int i = 1; i < den; i++)
     {
         curr = curr + 10;
-        while (curr > den)
+        while (curr >= den)
         {
             curr -= den;
             quo_i++;
