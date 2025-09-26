@@ -10,7 +10,7 @@ set "HH=%dt:~8,2%" & set "Min=%dt:~10,2%" & set "Sec=%dt:~12,2%"
 set "timestamp=%YYYY%%MM%%DD%_%HH%%Min%%Sec%"
 
 REM Set output filename
-set "output_file=test_results_%timestamp%.txt"
+set "output_file=results_%timestamp%_log.txt"
 
 REM Compile the C++ program
 echo Compiling bigmem.cpp...
