@@ -82,13 +82,16 @@ int main()
     // cout << endl;
     // Print
     after_zero = decimals.str();
-    if(after_zero.empty()){
+    if (after_zero.empty())
+    {
         word = before_zero;
     }
-    else if(pos[remainder] == -1){
+    else if (pos[remainder] == -1)
+    {
         word = before_zero + "." + after_zero;
     }
-    else{
+    else
+    {
         word = before_zero + "." + after_zero.substr(0, pos[remainder]) + "(" + after_zero.substr(pos[remainder]) + ")";
     }
     cout << word << endl;
