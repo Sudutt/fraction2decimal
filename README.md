@@ -14,17 +14,17 @@
 >
 >_Example 1:_
 >
->Input: numerator = 1, denominator = 2
+>Input: numerator = 1, denominator = 2\
 >Output: "0.5"
 >
 >_Example 2:_
 >
->Input: numerator = 2, denominator = 1
+>Input: numerator = 2, denominator = 1\
 >Output: "2"
 >
 >_Example 3:_
 >
->Input: numerator = 4, denominator = 333
+>Input: numerator = 4, denominator = 333\
 >Output: "0.(012)"
 >
 >**Constraints**:
