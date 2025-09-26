@@ -75,9 +75,11 @@ int main()
     // Print
     after_zero = decimals.str();
     if(after_zero.empty()){
-        after_zero = "0";
+        word = before_zero;
     }
-    word = before_zero + "." + after_zero;
+    else {
+        word = before_zero + "." + after_zero;
+    }
     cout << word << endl;
 
     return 0;
