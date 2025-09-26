@@ -2,6 +2,10 @@
 setlocal enabledelayedexpansion
 
 set RAW_TEST_CASES_FILE="raw test cases.txt"
+set LOG_FOLDER="log_files"
+
+REM Create log folder if it doesn't exist
+if not exist %LOG_FOLDER% mkdir %LOG_FOLDER%
 
 REM Get current date and time for unique filename
 for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "dt=%%a"
@@ -10,7 +14,7 @@ set "HH=%dt:~8,2%" & set "Min=%dt:~10,2%" & set "Sec=%dt:~12,2%"
 set "timestamp=%YYYY%%MM%%DD%_%HH%%Min%%Sec%"
 
 REM Set output filename
-set "output_file=results_%timestamp%_log.txt"
+set "output_file=%LOG_FOLDER%\results_%timestamp%_log.txt"
 
 REM Compile the C++ program
 echo Compiling bigmem.cpp...
