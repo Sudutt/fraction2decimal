@@ -1,6 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 
+set RAW_TEST_CASES_FILE="raw test cases.txt"
+
 REM Get current date and time for unique filename
 for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "dt=%%a"
 set "YY=%dt:~2,2%" & set "YYYY=%dt:~0,4%" & set "MM=%dt:~4,2%" & set "DD=%dt:~6,2%"
@@ -26,7 +28,7 @@ echo. >> "%output_file%"
 
 REM Read test cases from notes file
 echo Running tests...
-for /f "usebackq tokens=* delims=" %%i in ("notes for test cases.txt") do (
+for /f "usebackq tokens=* delims=" %%i in (%RAW_TEST_CASES_FILE%) do (
     if not "%%i"=="" (
         echo Processing test case: %%i
         echo Test Case: %%i >> "%output_file%"
