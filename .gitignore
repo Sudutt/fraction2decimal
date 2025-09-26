@@ -1,0 +1,8 @@
+# OUT files
+*.out
+
+# TXT files
+*.txt
+
+# VS Code working directory
+.vscode/
