@@ -20,6 +20,8 @@ int main()
     quo[0] = 0;
     bool *visited = new bool[den];
     visited[0] = false;
+    int *pos = new int[den];
+    pos[0] = -1;
 
     int quo_i = 0;
     int curr = 0;
@@ -38,6 +40,7 @@ int main()
         // DEBUG - print the rem table
         // cout << i << " " << curr << endl;
         visited[i] = false;
+        pos[i] = -1;
     }
 
     // DEBUG - print the quo table
@@ -51,24 +54,29 @@ int main()
     stringstream decimals;
     string before_zero;
     string after_zero;
-    int remainder, quotient;
+    int remainder, quotient, position;
 
     // Let's divide - execute
     before_zero = to_string(num / den);
     remainder = num % den;
+    position = 0;
     while (remainder > 0)
     {
-        // get next quotient digit
-        quotient = quo[remainder];
-        decimals << to_string(quotient);
         // check if repeat
         if (visited[remainder])
         {
             break;
         }
+        // get next quotient digit
+        // next quotient digit is added after check to avoid reprint of repeating decimal digit
+        quotient = quo[remainder];
+        decimals << to_string(quotient);
+        // set as now visited
         visited[remainder] = true;
+        pos[remainder] = position;
         // get next remainder
         remainder = rem[remainder];
+        position++;
     }
 
     // cout << endl;
@@ -77,8 +85,11 @@ int main()
     if(after_zero.empty()){
         word = before_zero;
     }
-    else {
+    else if(pos[remainder] == -1){
         word = before_zero + "." + after_zero;
+    }
+    else{
+        word = before_zero + "." + after_zero.substr(0, pos[remainder]) + "(" + after_zero.substr(pos[remainder]) + ")";
     }
     cout << word << endl;
 
